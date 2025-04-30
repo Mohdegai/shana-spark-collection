@@ -10,7 +10,7 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0; /* Light grey background */
+            background-color: #f0f8ff; /* Light blue background */
             color: #333;
         }
 
@@ -21,11 +21,12 @@
 
         /* Header Styles */
         header {
-            background-color: #ffc107; /* Jumia Yellow */
-            color: #000; /* Black text */
+            background-color: #007bff; /* Primary blue */
+            color: #fff; /* White text */
             padding: 10px 0;
             text-align: center;
             position: relative; /* Needed for absolute positioning of auth buttons */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
 
         .logo {
@@ -50,7 +51,7 @@
 
         /* Navigation Styles */
         nav {
-            background-color: #000; /* Black */
+            background-color: #0056b3; /* Darker blue */
             color: #fff;
             padding: 5px 0;
             text-align: center;
@@ -77,7 +78,7 @@
         }
 
         nav ul li a:hover {
-            background-color: #333;
+            background-color: #003087; /* Even darker blue */
         }
 
         /* Section Styles */
@@ -85,12 +86,12 @@
             padding: 20px;
             text-align: center;
             margin: 10px 0;
-            background-color: #fff;
+            background-color: #fff; /* White section background */
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
         }
 
         section h2 {
-            color: #000;
+            color: #007bff; /* Primary blue */
             margin-bottom: 15px;
         }
 
@@ -105,7 +106,7 @@
             width: 200px;
             margin: 10px;
             padding: 10px;
-            background-color: #fff;
+            background-color: #fff; /* White product background */
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
             border-radius: 5px;
             transition: transform 0.3s ease;
@@ -130,7 +131,7 @@
         }
 
         .product .add-to-cart {
-            background-color: #4CAF50; /* Green */
+            background-color: #007bff; /* Primary blue */
             color: white;
             padding: 6px 12px;
             border: none;
@@ -143,7 +144,7 @@
         }
 
         .product .add-to-cart:hover {
-            background-color: #367C39;
+            background-color: #0056b3; /* Darker blue */
         }
 
         /* Cart Styles */
@@ -153,7 +154,7 @@
             right: 0;
             transform: translateY(-50%);
             width: 300px;
-            background-color: #fff;
+            background-color: #fff; /* White cart background */
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
             padding: 20px;
             border-radius: 10px 0 0 10px;
@@ -165,7 +166,7 @@
         #cart h2 {
             margin-top: 0;
             margin-bottom: 15px;
-            color: #000;
+            color: #007bff; /* Primary blue */
             text-align: center;
         }
 
@@ -195,7 +196,7 @@
         }
 
         #cart .cart-item button {
-            background-color: #f44336; /* Red */
+            background-color: #dc3545; /* Red (Bootstrap) */
             color: white;
             border: none;
             padding: 5px 10px;
@@ -206,7 +207,7 @@
         }
 
         #cart .cart-item button:hover {
-            background-color: #d32f2f;
+            background-color: #c82333;
         }
 
         #cart .total {
@@ -216,8 +217,8 @@
         }
 
         #cart .checkout-button {
-            background-color: #ffc107; /* Jumia Yellow */
-            color: #000;
+            background-color: #007bff; /* Primary blue */
+            color: #fff;
             padding: 10px 20px;
             border: none;
             border-radius: 5px;
@@ -231,14 +232,14 @@
         }
 
         #cart .checkout-button:hover {
-            background-color: #ffb300;
+            background-color: #0056b3; /* Darker blue */
         }
 
         .show-cart-button {
             position: fixed;
             top: 20px;
             right: 20px;
-            background-color: #000;
+            background-color: #0056b3; /* Darker blue */
             color: #fff;
             padding: 10px 15px;
             border: none;
@@ -249,7 +250,7 @@
 
         /* Testimonial Styles */
         .testimonial {
-            background-color: #f9f9f9;
+            background-color: #e9f5ff; /* Very light blue */
             padding: 20px;
             margin: 10px auto;
             width: 80%;
@@ -264,7 +265,7 @@
             width: 80%;
             margin: auto;
             padding: 20px;
-            background-color: #fff;
+            background-color: #fff; /* White about content background */
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
             border-radius: 5px;
         }
@@ -281,8 +282,8 @@
         }
 
         button {
-            background-color: #ffc107; /* Jumia Yellow */
-            color: #000;
+            background-color: #007bff; /* Primary blue */
+            color: #fff;
             padding: 8px 16px;
             border: none;
             cursor: pointer;
@@ -293,12 +294,12 @@
         }
 
         button:hover {
-            background-color: #ffb300;
+            background-color: #0056b3; /* Darker blue */
         }
 
         /* Footer Styles */
         footer {
-            background-color: #000; /* Black */
+            background-color: #0056b3; /* Darker blue */
             color: white;
             text-align: center;
             padding: 10px;
@@ -311,14 +312,14 @@
             width: 80%;
             margin: 20px auto;
             padding: 20px;
-            background-color: white;
+            background-color: #fff; /* White contact info background */
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
             border-radius: 5px;
         }
 
         .contact-info h3 {
             margin-top: 0;
-            color: #000;
+            color: #007bff; /* Primary blue */
         }
 
         .contact-info p {
@@ -385,7 +386,7 @@
 
         .auth-buttons button {
             padding: 8px 12px;
-            background-color: #4CAF50;
+            background-color: #007bff; /* Primary blue */
             color: white;
             border: none;
             cursor: pointer;
@@ -396,7 +397,7 @@
             display: none;
             margin-top: 20px;
             padding: 20px;
-            background-color: #fff;
+            background-color: #fff; /* White auth form background */
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
             border-radius: 5px;
             text-align: left;
@@ -707,16 +708,20 @@
             cartItemsList.innerHTML = ''; // Clear existing items
             let checkoutMessage = "Hello!%20I'm%20interested%20in%20placing%20an%20order.%20Here%20are%20the%20items%20in%20my%20cart:%0A%0A";
 
-            cart.forEach((item, index) => {
-                const listItem = document.createElement('li');
-                listItem.classList.add('cart-item');
-                listItem.innerHTML = `
-                    <span>${item.name} - KES ${item.price}</span>
-                    <button onclick="removeFromCart(${index})">Remove</button>
-                `;
-                cartItemsList.appendChild(listItem);
-                checkoutMessage += `${item.name} - KES ${item.price}%0A`;
-            });
+            if (cart.length === 0) {
+                cartItemsList.innerHTML = '<li>Your cart is empty.</li>';
+            } else {
+                cart.forEach((item, index) => {
+                    const listItem = document.createElement('li');
+                    listItem.classList.add('cart-item');
+                    listItem.innerHTML = `
+                        <span>${item.name} - KES ${item.price}</span>
+                        <button onclick="removeFromCart(${index})">Remove</button>
+                    `;
+                    cartItemsList.appendChild(listItem);
+                    checkoutMessage += `${item.name} - KES ${item.price}%0A`;
+                });
+            }
 
             cartTotalElement.textContent = cartTotal;
             checkoutMessage += `%0ATotal:%20KES%20${cartTotal}`;
@@ -726,6 +731,7 @@
         function toggleCart() {
             const cartElement = document.getElementById('cart');
             cartElement.style.display = cartElement.style.display === 'none' ? 'block' : 'none';
+            updateCart(); // Call updateCart when toggling the cart
         }
 
         function updateCartCount() {
@@ -788,3 +794,5 @@
     </script>
 </body>
 </html>
+
+       
