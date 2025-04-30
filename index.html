@@ -25,7 +25,6 @@
             color: #000; /* Black text */
             padding: 10px 0;
             text-align: center;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
             position: relative; /* Needed for absolute positioning of auth buttons */
         }
 
@@ -374,6 +373,53 @@
             text-decoration: underline;
         }
 
+        /* Sign-up/Sign-in Styles */
+        .auth-buttons {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: flex; /* Use flexbox for horizontal layout */
+            gap: 10px; /* Add spacing between buttons */
+            align-items: center; /* Vertically align items */
+        }
+
+        .auth-buttons button {
+            padding: 8px 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .auth-form {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            text-align: left;
+            width: 80%;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .auth-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .auth-form input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .product-grid {
@@ -421,58 +467,45 @@
                 position: static;
                 margin-bottom: 10px;
             }
-        }
 
-        /* Sign-up/Sign-in Styles */
-        .auth-buttons {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            display: flex; /* Use flexbox for horizontal layout */
-            gap: 10px; /* Add spacing between buttons */
-        }
+             /* Adjust header and auth buttons for smaller screens */
+            header {
+                padding: 15px 0;
+            }
 
-        .auth-buttons button {
-            padding: 8px 12px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 4px;
-        }
+            .logo {
+                width: 20%;
+                max-width: 80px;
+                position: static; /* Remove absolute positioning */
+                margin: 0 auto; /* Center the logo */
+                display: block; /* Make it a block element */
+            }
 
-        .auth-form {
-            display: none;
-            margin-top: 20px;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-            border-radius: 5px;
-            text-align: left;
-            width: 80%;
-            max-width: 400px;
-            margin-left: auto;
-            margin-right: auto;
-        }
+            header h1,
+            header p {
+                text-align: center; /* Center text */
+            }
 
-        .auth-form label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
+            .auth-buttons {
+                position: static; /* Remove absolute positioning */
+                display: flex;
+                flex-direction: column; /* Stack buttons vertically */
+                align-items: center; /* Center buttons horizontally */
+                margin-top: 10px;
+                gap: 5px;
+            }
 
-        .auth-form input {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
+            .auth-buttons button {
+                width: 80%; /* Make buttons wider */
+                max-width: 200px;
+                padding: 10px;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <img src="logo.png" alt="Shana Spark Collection Logo" class="logo">
+        <img src="logo.jpg" alt="Shana Spark Collection Logo" class="logo">
         <h1>Welcome to Shana Spark Collection</h1>
         <p>Your One-Stop Shop for Electronics & Household Essentials!</p>
 
@@ -489,10 +522,9 @@
             <li><a href="#about">About Us</a></li>
             <li><a href="#testimonials">Testimonials</a></li>
             <li><a href="#contact">Contact</a></li>
+            <li><a href="#" onclick="toggleCart()">🛒 (<span id="cart-count">0</span>)</a></li> <!-- Cart Icon -->
         </ul>
     </nav>
-
-    <button class="show-cart-button" onclick="toggleCart()">View Cart</button>
 
     <section id="home">
         <h2>Bringing Innovation and Comfort to Your Doorstep</h2>
@@ -533,37 +565,37 @@
             </div>
             <div class="product">
                 <img src="img2.jpg" alt="3 pc marble curtains Curtains 1.5 m each Sheer-3 m Height-2.5m Yellow back in stock Now available @ 3600 Available at the shop">
-                <p>3 pc marble curtains<br>Curtains 1.5 m each<br>Sheer-3 m<br>Height-2.5m<br>Yellow back in stock<br>Now available @ 3600<br>Available at the shop</p>
+                <p>3 pc marble curtains<br>Curtains 1.5 m each Sheer-3 m Height-2.5m Yellow back in stock Now available @ 3600 Available at the shop</p>
                 <button class="add-to-cart" onclick="addToCart('3 pc marble curtains', 3600)">Add to Cart</button>
             </div>
             <div class="product">
                 <img src="img3.jpg" alt="All white Tea set PRICE : KES 4500 6 pcs 10&quot; WHite Round Dinner plates 6 pcs White cups 2.0 litres unbreakable White flask Available at the Shop">
-                <p>All white Tea set<br>PRICE : KES 4500<br>6 pcs 10" WHite Round Dinner plates<br>6 pcs White cups<br>2.0 litres unbreakable White flask<br>Available at the Shop</p>
+                <p>All white Tea set<br>PRICE : KES 4500 6 pcs 10&quot; WHite Round Dinner plates 6 pcs White cups 2.0 litres unbreakable White flask Available at the Shop</p>
                 <button class="add-to-cart" onclick="addToCart('All white Tea set', 4500)">Add to Cart</button>
             </div>
             <div class="product">
                 <img src="img4.jpg" alt="Two Stand Rail Mosquito Net with Sliding Rails 6/6 Cream Pink Purple White Size 5/6 Pink White Purple Cream Size 4/6 White Cream Purple Price:4500/-">
-                <p>Two Stand Rail Mosquito Net with Sliding Rails<br>6/6<br>Cream Pink Purple White<br>Size 5/6<br>Pink White Purple Cream<br>Size 4/6<br>White Cream Purple<br>Price:4500/-</p>
+                <p>Two Stand Rail Mosquito Net with Sliding Rails 6/6 Cream Pink Purple White Size 5/6 Pink White Purple Cream Size 4/6 White Cream Purple Price:4500/-</p>
                 <button class="add-to-cart" onclick="addToCart('Two Stand Rail Mosquito Net', 4500)">Add to Cart</button>
             </div>
             <div class="product">
                 <img src="img5.jpg" alt="New Offer On Straight Mosquito Net Sizes: 4*6 : 1,2,3,4 5*6 : 1,2,3,4 Price per pc: 2000">
-                <p>New Offer On Straight Mosquito Net<br>Sizes:<br>4*6 : 1,2,3,4<br>5*6 : 1,2,3,4<br>Price per pc: 2000</p>
+                <p>New Offer On Straight Mosquito Net Sizes: 4*6 : 1,2,3,4 5*6 : 1,2,3,4 Price per pc: 2000</p>
                 <button class="add-to-cart" onclick="addToCart('Straight Mosquito Net', 2000)">Add to Cart</button>
             </div>
             <div class="product">
                 <img src="img6.jpg" alt="Jua Kali Chapati pans Promotion Price Ksh. 1199/=">
-                <p>Jua Kali Chapati pans<br>Promotion Price<br>Ksh. 1199/=</p>
+                <p>Jua Kali Chapati pans Promotion Price Ksh. 1199/=</p>
                 <button class="add-to-cart" onclick="addToCart('Jua Kali Chapati pans', 1199)">Add to Cart</button>
             </div>
             <div class="product">
                 <img src="img7.jpg" alt="4pc Hotpot Casserole Capacity: 1000ml,2000ml,4000m,6000ml. Offer price:ksh.3500">
-                <p>4pc Hotpot Casserole<br>Capacity: 1000ml, 2000ml, 4000ml, 6000ml<br>Offer price: ksh.3500</p>
+                <p>4pc Hotpot Casserole Capacity: 1000ml,2000ml,4000m,6000ml. Offer price:ksh.3500</p>
                 <button class="add-to-cart" onclick="addToCart('4pc Hotpot Casserole', 3500)">Add to Cart</button>
             </div>
             <div class="product">
-                <img src="img8.jpg" alt="Hisense price list: Hisense 32 smart android tv@22500 Hisense 43 inches android a4 tv@34500 Hisense 43 inches 4k a6 tv@34500 Hisense 50 inches tv @44500 Hisense 55 inches tv@50500 Hisense 65 inches tv@72500">
-                <p>Hisense price list:<br>Hisense 32 smart android tv@22500<br>Hisense 43 inches android a4 tv@32000<br>Hisense 43 inches 4k a6 tv@34500<br>Hisense 50 inches tv @44500<br>Hisense 55 inches tv@50500<br>Hisense 65 inches tv@72500</p>
+                <img src="img8.jpg" alt="Hisense price list: Hisense 32 smart android tv@22500 Hisense 43 inches android a4 tv@32000 Hisense 43 inches 4k a6 tv@34500 Hisense 50 inches tv @44500 Hisense 55 inches tv@50500 Hisense 65 inches tv@72500">
+                <p>Hisense price list: Hisense 32 smart android tv@22500 Hisense 43 inches android a4 tv@32000 Hisense 43 inches 4k a6 tv@34500 Hisense 50 inches tv @44500 Hisense 55 inches tv@50500 Hisense 65 inches tv@72500</p>
                 <button class="add-to-cart" onclick="addToCart('Hisense 32 smart android tv', 22500)">Add to Cart</button>
                 <button class="add-to-cart" onclick="addToCart('Hisense 43 inches android a4 tv', 32000)">Add to Cart</button>
                 <button class="add-to-cart" onclick="addToCart('Hisense 43 inches 4k a6 tv', 34500)">Add to Cart</button>
@@ -573,7 +605,7 @@
             </div>
             <div class="product">
                 <img src="img9.jpg" alt="Bosch 11pc Cookware with Silicone lid covers Made in Germany Small diamond texture Now @8800/= Colour: Black Good Quality">
-                <p>Bosch 11pc Cookware with Silicone lid covers<br>Made in Germany<br>Small diamond texture<br>Now @8800/=<br>Colour: Black<br>Good Quality</p>
+                <p>Bosch 11pc Cookware with Silicone lid covers Made in Germany Small diamond texture Now @8800/= Colour: Black Good Quality</p>
                 <button class="add-to-cart" onclick="addToCart('Bosch 11pc Cookware', 8800)">Add to Cart</button>
             </div>
         </div>
@@ -586,9 +618,9 @@
         <div class="about-content">
             <p>Welcome to Shana Spark Collection! We are driven by a shared passion for excellence, innovation, and customer satisfaction.</p>
             <h3>Our Leadership</h3>
-            <p><strong>Patrick Shiongola Anjere – Chief Executive Officer (CEO)</strong><br> A visionary leader guiding the company with strategic growth and innovation.</p>
-            <p><strong>Naomi Mongina Ondimu – Director</strong><br> Ensuring corporate excellence and maintaining high operational standards.</p>
-            <p><strong>Alvin Wiyema – General Manager</strong><br> Overseeing day-to-day operations to deliver consistent quality and service.</p>
+            <p><strong>Patrick Shiongola Anjere – Chief Executive Officer (CEO)</strong> A visionary leader guiding the company with strategic growth and innovation.</p>
+            <p><strong>Naomi Mongina Ondimu – Director</strong> Ensuring corporate excellence and maintaining high operational standards.</p>
+            <p><strong>Alvin Wiyema – General Manager</strong> Overseeing day-to-day operations to deliver consistent quality and service.</p>
             <h3>Our Mission</h3>
             <p>To deliver reliable, innovative, and high-quality products that empower our customers and uplift communities.</p>
             <h3>Our Vision</h3>
@@ -657,12 +689,14 @@
             cart.push(item);
             cartTotal += price;
             updateCart();
+            updateCartCount(); // Update the cart count display
         }
 
         function removeFromCart(index) {
             cartTotal -= cart[index].price;
             cart.splice(index, 1);
             updateCart();
+            updateCartCount(); // Update the cart count display
         }
 
         function updateCart() {
@@ -692,6 +726,11 @@
         function toggleCart() {
             const cartElement = document.getElementById('cart');
             cartElement.style.display = cartElement.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function updateCartCount() {
+            const cartCountElement = document.getElementById('cart-count');
+            cartCountElement.textContent = cart.length;
         }
 
         function simpleHash(str) {
@@ -743,6 +782,9 @@
           document.getElementById('loginForm').style.display = 'block';
           document.getElementById('signupForm').style.display = 'none';
         }
+
+        // Initialize cart count on page load
+        updateCartCount();
     </script>
 </body>
 </html>
