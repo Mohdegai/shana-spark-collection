@@ -96,33 +96,57 @@
         }
 
         /* Product Grid Styles */
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Flexible columns */
-    gap: 10px; /* Space between grid items */
-}
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Two columns */
+            gap: 20px; /* Space between products */
+        }
 
-.product {
-    background-color: #fff;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-    padding: 10px;
-    text-align: center; /* Center text */
-    transition: transform 0.3s ease;
-}
+        .product {
+            width: 100%; /* Full width of grid cell */
+            max-width: 300px; /* Optional: set a max width */
+            margin: auto; /* Center product */
+            padding: 10px;
+            background-color: #fff; /* White product background */
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+            text-align: left;
+        }
 
-.product:hover {
-    transform: translateY(-3px);
-}
+        .product:hover {
+            transform: translateY(-3px);
+        }
 
-.product img {
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
-    object-fit: cover;
-    margin-bottom: 5px;
-}
-        
+        .product img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            object-fit: cover;
+            margin-bottom: 5px;
+        }
+
+        .product p {
+            margin-bottom: 5px;
+            font-size: 0.9em;
+        }
+
+        .product .add-to-cart {
+            background-color: #007bff; /* Primary blue */
+            color: white;
+            padding: 6px 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.8em;
+            transition: background-color 0.3s ease;
+            display: inline-block;
+            margin-top: 5px;
+        }
+
+        .product .add-to-cart:hover {
+            background-color: #0056b3; /* Darker blue */
+        }
 
         /* Cart Styles */
         #cart {
@@ -401,8 +425,7 @@
         /* Responsive Design */
         @media (max-width: 768px) {
             .product-grid {
-                flex-direction: column;
-                align-items: center;
+                grid-template-columns: 1fr; /* Stack products in a single column */
             }
 
             .product {
@@ -446,7 +469,7 @@
                 margin-bottom: 10px;
             }
 
-             /* Adjust header and auth buttons for smaller screens */
+            /* Adjust header and auth buttons for smaller screens */
             header {
                 padding: 15px 0;
             }
@@ -500,7 +523,7 @@
             <li><a href="#about">About Us</a></li>
             <li><a href="#testimonials">Testimonials</a></li>
             <li><a href="#contact">Contact</a></li>
-            <li><a href="#" onclick="toggleCart()">🛒 (<span id="cart-count">0</span>)</a></li> <!-- Cart Icon -->
+            <li><a href="#" onclick="toggleCart()">🛒 (<span id="cart-count">0</span>)</a> <!-- Cart Icon --></li>
         </ul>
     </nav>
 
@@ -545,50 +568,45 @@
                 <img src="img2.jpg" alt="3 pc marble curtains Curtains 1.5 m each Sheer-3 m Height-2.5m Yellow back in stock Now available @ 3600 Available at the shop">
                 <p>3 pc marble curtains<br>Curtains 1.5 m each Sheer-3 m Height-2.5m Yellow back in stock Now available @ 3600 Available at the shop</p>
                 <button class="add-to-cart" onclick="addToCart('3 pc marble curtains', 3600)">Add to Cart</button>
-            </div>
-            <div class="product">
+    </div>
+                        <div class="product">
                 <img src="img3.jpg" alt="All white Tea set PRICE : KES 4500 6 pcs 10&quot; WHite Round Dinner plates 6 pcs White cups 2.0 litres unbreakable White flask Available at the Shop">
-                <p>All white Tea set<br>PRICE : KES 4500 6 pcs 10&quot; WHite Round Dinner plates 6 pcs White cups 2.0 litres unbreakable White flask Available at the Shop</p>
+                <p>All white Tea set<br>PRICE : KES 4500</p>
                 <button class="add-to-cart" onclick="addToCart('All white Tea set', 4500)">Add to Cart</button>
             </div>
             <div class="product">
                 <img src="img4.jpg" alt="Two Stand Rail Mosquito Net with Sliding Rails 6/6 Cream Pink Purple White Size 5/6 Pink White Purple Cream Size 4/6 White Cream Purple Price:4500/-">
-                <p>Two Stand Rail Mosquito Net with Sliding Rails 6/6 Cream Pink Purple White Size 5/6 Pink White Purple Cream Size 4/6 White Cream Purple Price:4500/-</p>
+                <p>Two Stand Rail Mosquito Net<br>Price: 4500/-</p>
                 <button class="add-to-cart" onclick="addToCart('Two Stand Rail Mosquito Net', 4500)">Add to Cart</button>
             </div>
             <div class="product">
                 <img src="img5.jpg" alt="New Offer On Straight Mosquito Net Sizes: 4*6 : 1,2,3,4 5*6 : 1,2,3,4 Price per pc: 2000">
-                <p>New Offer On Straight Mosquito Net Sizes: 4*6 : 1,2,3,4 5*6 : 1,2,3,4 Price per pc: 2000</p>
+                <p>New Offer On Straight Mosquito Net<br>Price per pc: 2000</p>
                 <button class="add-to-cart" onclick="addToCart('Straight Mosquito Net', 2000)">Add to Cart</button>
             </div>
             <div class="product">
                 <img src="img6.jpg" alt="Jua Kali Chapati pans Promotion Price Ksh. 1199/=">
-                <p>Jua Kali Chapati pans Promotion Price Ksh. 1199/=</p>
+                <p>Jua Kali Chapati pans<br>Price Ksh. 1199/=</p>
                 <button class="add-to-cart" onclick="addToCart('Jua Kali Chapati pans', 1199)">Add to Cart</button>
             </div>
             <div class="product">
                 <img src="img7.jpg" alt="4pc Hotpot Casserole Capacity: 1000ml,2000ml,4000m,6000ml. Offer price:ksh.3500">
-                <p>4pc Hotpot Casserole Capacity: 1000ml,2000ml,4000m,6000ml. Offer price:ksh.3500</p>
+                <p>4pc Hotpot Casserole<br>Offer price: ksh.3500</p>
                 <button class="add-to-cart" onclick="addToCart('4pc Hotpot Casserole', 3500)">Add to Cart</button>
             </div>
             <div class="product">
-                <img src="img8.jpg" alt="Hisense price list: Hisense 32 smart android tv@22500 Hisense 43 inches android a4 tv@32000 Hisense 43 inches 4k a6 tv@34500 Hisense 50 inches tv @44500 Hisense 55 inches tv@50500 Hisense 65 inches tv@72500">
-                <p>Hisense price list: Hisense 32 smart android tv@22500 Hisense 43 inches android a4 tv@32000 Hisense 43 inches 4k a6 tv@34500 Hisense 50 inches tv @44500 Hisense 55 inches tv@50500 Hisense 65 inches tv@72500</p>
+                <img src="img8.jpg" alt="Hisense price list: Hisense 32 smart android tv@22500 ...">
+                <p>Hisense price list:<br>32 smart android tv @ 22500</p>
                 <button class="add-to-cart" onclick="addToCart('Hisense 32 smart android tv', 22500)">Add to Cart</button>
-                <button class="add-to-cart" onclick="addToCart('Hisense 43 inches android a4 tv', 32000)">Add to Cart</button>
-                <button class="add-to-cart" onclick="addToCart('Hisense 43 inches 4k a6 tv', 34500)">Add to Cart</button>
-                <button class="add-to-cart" onclick="addToCart('Hisense 50 inches tv', 44500)">Add to Cart</button>
-                <button class="add-to-cart" onclick="addToCart('Hisense 55 inches tv', 50500)">Add to Cart</button>
-                <button class="add-to-cart" onclick="addToCart('Hisense 65 inches tv', 72500)">Add to Cart</button>
             </div>
             <div class="product">
-                <img src="img9.jpg" alt="Bosch 11pc Cookware with Silicone lid covers Made in Germany Small diamond texture Now @8800/= Colour: Black Good Quality">
-                <p>Bosch 11pc Cookware with Silicone lid covers Made in Germany Small diamond texture Now @8800/= Colour: Black Good Quality</p>
+                <img src="img9.jpg" alt="Bosch 11pc Cookware with Silicone lid covers ...">
+                <p>Bosch 11pc Cookware<br>Now @ 8800/=</p>
                 <button class="add-to-cart" onclick="addToCart('Bosch 11pc Cookware', 8800)">Add to Cart</button>
             </div>
         </div>
         <a href="https://www.tiktok.com/@shanasparkcollection?_t=ZM-8vxfBZW8CE3&_r=1" class="tiktok-button" target="_blank">See More Videos on TikTok</a>
-        <p><strong>And much more!</strong> Air fryers, dispensers, cookers, smart home devices, and accessories.</p>
+        <p><strong>And much more!</strong></p>
     </section>
 
     <section id="about">
@@ -605,7 +623,6 @@
             <p>To become a leading name in the industry, known for trust, creativity, and lasting impact.</p>
         </div>
     </section>
-
     <section id="testimonials">
         <h2>What Our Customers Say</h2>
         <div class="testimonial">
@@ -639,7 +656,7 @@
             <p>Email: <a href="mailto:shanasparkcollection@gmail.com" class="email-link">shanasparkcollection@gmail.com</a></p>
             <a href="https://wa.me/254742202441" class="whatsapp-button" target="_blank">Chat with us on WhatsApp</a>
             <a href="https://www.facebook.com/naomie.mongina" class="facebook-button" target="_blank">Visit Our Facebook Page</a>
-             <a href="https://www.tiktok.com/@shanasparkcollection?_t=ZM-8vxfBZW8CE3&_r=1" class="whatsapp-button" target="_blank">See More Videos on TikTok</a>
+            <a href="https://www.tiktok.com/@shanasparkcollection?_t=ZM-8vxfBZW8CE3&_r=1" class="whatsapp-button" target="_blank">See More Videos on TikTok</a>
         </div>
     </section>
 
@@ -772,4 +789,4 @@
 </body>
 </html>
 
-       
+    
