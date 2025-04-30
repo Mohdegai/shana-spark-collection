@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shana Spark Collection - Electronics & Household Essentials</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #e0f2f7, #cce5ff, #b3d9ff);
+            color: #333;
+        }
+
+        header {
+            background-color: #0073e6;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #ffdb58;
+        }
+
+        section {
+            padding: 50px;
+            text-align: center;
+        }
+
+        section:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .product-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .product {
+            width: 250px;
+            margin: 15px;
+            padding: 15px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            text-align: left;
+        }
+
+        .product:hover {
+            transform: translateY(-5px);
+        }
+
+        .product img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        .product p {
+            margin-bottom: 10px;
+        }
+
+        .product .order-button {
+            background-color: #25D366;
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
+
+        .product .order-button:hover {
+            background-color: #128C7E;
+        }
+
+        .testimonial {
+            background-color: #e6f7ff;
+            padding: 30px;
+            margin: 20px auto;
+            width: 80%;
+            border-radius: 10px;
+            text-align: left;
+        }
+
+        .about-content {
+            text-align: left;
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        form input,
+        form textarea {
+            display: block;
+            width: 80%;
+            margin: 10px auto;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #0073e6;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #005bb5;
+        }
+
+        footer {
+            background-color: #005bb5;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        @media (max-width: 768px) {
+            .product-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .product {
+                width: 80%;
+            }
+
+            nav ul li {
+                display: block;
+                margin: 10px 0;
+            }
+
+            section {
+                padding: 30px;
+            }
+
+            .about-content,
+            .testimonial {
+                width: 95%;
+            }
+
+            form input,
+            form textarea {
+                width: 95%;
+            }
+        }
+
+        .contact-info {
+            text-align: left;
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .contact-info h3 {
+            margin-top: 0;
+            color: #0073e6;
+        }
+
+        .contact-info p {
+            margin-bottom: 5px;
+        }
+
+        .whatsapp-button {
+            background-color: #25D366;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .whatsapp-button:hover {
+            background-color: #128C7E;
+        }
+
+        .email-link {
+            color: #0073e6;
+            text-decoration: none;
+        }
+
+        .email-link:hover {
+            text-decoration: underline;
+        }
+
+        .facebook-button {
+            background-color: #1877F2;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .facebook-button:hover {
+            background-color: #0d4ea0;
+        }
+
+        .logo {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 100px;
+            height: auto;
+        }
+
+        .tiktok-button {
+            background-color: #000000;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .tiktok-button:hover {
+            background-color: #1e1e1e;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo.jpg" alt="Shana Spark Collection Logo" class="logo">
+        <h1>Welcome to Shana Spark Collection</h1>
+        <p>Your One-Stop Shop for Electronics & Household Essentials!</p>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <h2>Bringing Innovation and Comfort to Your Doorstep</h2>
+        <p>At Shana Spark Collection, we offer a wide range of high-quality electronics and household products to enhance your home and lifestyle.</p>
+    </section>
+
+    <section id="products">
+        <h2>What We Offer</h2>
+        <div class="product-grid">
+            <div class="product">
+                <img src="img1.jpg" alt="310 ml highball glass Price: kshs.1000">
+                <p>310 ml highball glass<br>Price: kshs.1000</p>
+                <a href="https://wa.me/254742202441?text=Hello!%20I'm%20interested%20in%20the%20310%20ml%20highball%20glass.%20Is%20it%20available?" class="order-button" target="_blank">Order Now</a>
+            </div>
+            <div class="product">
+                <img src="img2.jpg" alt="3 pc marble curtains Curtains 1.5 m each Sheer-3 m Height-2.5m Yellow back in stock Now available @ 3600 Available at the shop">
+                <p>3 pc marble curtains<br>Curtains 1.5 m each<br>Sheer-3 m<br>Height-2.5m<br>Yellow back in stock<br>Now available @ 3600<br>Available at the shop</p>
+                <a href="https://wa.me/254742202441?text=Hello!%20I'm%20interested%20in%20the%203%20pc%20marble%20curtains.%20Is%20it%20available?" class="order-button" target="_blank">Order Now</a>
+            </div>
+            <div class="product">
+                <img src="img3.jpg" alt="All white Tea set PRICE : KES 4500 6 pcs 10&quot; WHite Round Dinner plates 6 pcs White cups 2.0 litres unbreakable White flask Available at the Shop">
+                <p>All white Tea set<br>PRICE : KES 4500<br>6 pcs 10" WHite Round Dinner plates<br>6 pcs White cups<br>2.0 litres unbreakable White flask<br>Available at the Shop</p>
+                <a href="https://wa.me/254742202441?text=Hello!%20I'm%20interested%20in%20the%20All%20white%20Tea%20set.%20Is%20it%20available?" class="order-button" target="_blank">Order Now</a>
+            </div>
+            <div class="product">
+                <img src="img4.jpg" alt="Two Stand Rail Mosquito Net with Sliding Rails 6/6 Cream Pink Purple White Size 5/6 Pink White Purple Cream Size 4/6 White Cream Purple Price:4500/-">
+                <p>Two Stand Rail Mosquito Net with Sliding Rails<br>6/6<br>Cream Pink Purple White<br>Size 5/6<br>Pink White Purple Cream<br>Size 4/6<br>White Cream Purple<br>Price:4500/-</p>
+                <a href="https://wa.me/254742202441?text=Hello!%20I'm%20interested%20in%20the%20Two%20Stand%20Rail%20Mosquito%20Net.%20Is%20it%20available?" class="order-button" target="_blank">Order Now</a>
+            </div>
+            <div class="product">
+                <img src="img5.jpg" alt="New Offer On Straight Mosquito Net Sizes: 4*6 : 1,2,3,4 5*6 : 1,2,3,4 Price per pc: 2000">
+                <p>New Offer On Straight Mosquito Net<br>Sizes:<br>4*6 : 1,2,3,4<br>5*6 : 1,2,3,4<br>Price per pc: 2000</p>
+                <a href="https://wa.me/254742202441?text=Hello!%20I'm%20interested%20in%20the%20Straight%20Mosquito%20Net.%20Is%20it%20available?" class="order-button" target="_blank">Order Now</a>
+            </div>
+            <div class="product">
+                <img src="img6.jpg" alt="Jua Kali Chapati pans Promotion Price Ksh. 1199/=">
+                <p>Jua Kali Chapati pans<br>Promotion Price<br>Ksh. 1199/=</p>
+                <a href="https://wa.me/254742202441?text=Hello!%20I'm%20interested%20in%20the%20Jua%20Kali%20Chapati%20pans.%20Is%20it%20available?" class="order-button" target="_blank">Order Now</a>
+            </div>
+            <div class="product">
+                <img src="img7.jpg" alt="4pc Hotpot Casserole Capacity: 1000ml,2000ml,4000m,6000ml. Offer price:ksh.3500">
+                <p>4pc Hotpot Casserole<br>Capacity: 1000ml, 2000ml, 4000ml, 6000ml<br>Offer price: ksh.3500</p>
+                <a href="https://wa.me/254742202441?text=Hello!%20I'm%20interested%20in%20the%204pc%20Hotpot%20Casserole.%20Is%20it%20available?" class="order-button" target="_blank">Order Now</a>
+            </div>
+            <div class="product">
+                <img src="img8.jpg" alt="Hisense price list: Hisense 32 smart android tv@22500 Hisense 43 inches android a4 tv@32000 Hisense 43 inches 4k a6 tv@34500 Hisense 50 inches tv @44500 Hisense 55 inches tv@50500 Hisense 65 inches tv@72500">
+                <p>Hisense price list:<br>Hisense 32 smart android tv@22500<br>Hisense 43 inches android a4 tv@32000<br>Hisense 43 inches 4k a6 tv@34500<br>Hisense 50 inches tv @44500<br>Hisense 55 inches tv@50500<br>Hisense 65 inches tv@72500</p>
+                <a href="https://wa.me/254742202441?text=Hello!%20I'm%20interested%20in%20the%20Hisense%20TVs.%20Could%20you%20provide%20more%20details%20and%20availability?" class="order-button" target="_blank">Order Now</a>
+            </div>
+            <div class="product">
+                <img src="img9.jpg" alt="Bosch 11pc Cookware with Silicone lid covers Made in Germany Small diamond texture Now @8800/= Colour: Black Good Quality">
+                <p>Bosch 11pc Cookware with Silicone lid covers<br>Made in Germany<br>Small diamond texture<br>Now @8800/=<br>Colour: Black<br>Good Quality</p>
+                 <a href="https://wa.me/254742202441?text=Hello!%20I'm%20interested%20in%20the%20Bosch%2011pc%20Cookware%20set.%20Is%20it%20available?" class="order-button" target="_blank">Order Now</a>
+            </div>
+        </div>
+        <a href="https://www.tiktok.com/@shanasparkcollection?_t=ZM-8vxfBZW8CE3&_r=1" class="tiktok-button" target="_blank">See More Videos on TikTok</a>
+        <p><strong>And much more!</strong> Air fryers, dispensers, cookers, smart home devices, and accessories.</p>
+    </section>
+
+    <section id="about">
+        <h2>About Us</h2>
+        <div class="about-content">
+            <p>Welcome to Shana Spark Collection! We are driven by a shared passion for excellence, innovation, and customer satisfaction.</p>
+            <h3>Our Leadership</h3>
+            <p><strong>Patrick Shiongola Anjere – Chief Executive Officer (CEO)</strong><br> A visionary leader guiding the company with strategic growth and innovation.</p>
+            <p><strong>Naomi Mongina Ondimu – Director</strong><br> Ensuring corporate excellence and maintaining high operational standards.</p>
+            <p><strong>Alvin Wiyema – General Manager</strong><br> Overseeing day-to-day operations to deliver consistent quality and service.</p>
+            <h3>Our Mission</h3>
+            <p>To deliver reliable, innovative, and high-quality products that empower our customers and uplift communities.</p>
+            <h3>Our Vision</h3>
+            <p>To become a leading name in the industry, known for trust, creativity, and lasting impact.</p>
+        </div>
+    </section>
+
+    <section id="testimonials">
+        <h2>What Our Customers Say</h2>
+        <div class="testimonial">
+            <p><strong>John Doe:</strong> "The laptop I bought was exactly what I needed for work. Great prices and fast delivery!"</p>
+        </div>
+        <div class="testimonial">
+            <p><strong>Sarah Lee:</strong> "My new fridge is amazing! Keeps everything super fresh, and the service was outstanding."</p>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <form>
+            <input type="text" placeholder="Your Name">
+            <input type="email" placeholder="Your Email">
+            <textarea placeholder="Your Message"></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+
+        <div class="contact-info">
+            <h3>Operating Hours:</h3>
+            <p>Online Orders: 24/7</p>
+            <p>Customer Support:</p>
+            <p>Monday – Saturday: 9:00 AM – 6:00 PM</p>
+            <p>Sunday: 8:00 AM – 5:00 PM</p>
+
+            <h3>Contact Us:</h3>
+            <p>Phone: 0742202441</p>
+            <p>0727609958</p>
+            <p>0758 253839</p>
+            <p>Email: <a href="mailto:shanasparkcollection@gmail.com" class="email-link">shanasparkcollection@gmail.com</a></p>
+            <a href="https://wa.me/254742202441" class="whatsapp-button" target="_blank">Chat with us on WhatsApp</a>
+            <a href="https://www.facebook.com/naomie.mongina" class="facebook-button" target="_blank">Visit Our Facebook Page</a>
+             <a href="https://www.tiktok.com/@shanasparkcollection?_t=ZM-8vxfBZW8CE3&_r=1" class="whatsapp-button" target="_blank">See More Videos on TikTok</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Shana Spark Collection. All rights reserved.</p>
+    </footer>
+</body>
+</html>
