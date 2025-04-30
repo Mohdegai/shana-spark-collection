@@ -5,54 +5,97 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shana Spark Collection - Electronics & Household Essentials</title>
     <style>
+        /* General Styles */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #e0f2f7, #cce5ff, #b3d9ff);
+            background-color: #f0f0f0; /* Light grey background */
             color: #333;
         }
 
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header Styles */
         header {
-            background-color: #0073e6;
-            color: white;
-            padding: 20px;
+            background-color: #ffc107; /* Jumia Yellow */
+            color: #000; /* Black text */
+            padding: 10px 0;
             text-align: center;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            position: relative;
+            position: relative; /* Needed for absolute positioning of auth buttons */
+        }
+
+        .logo {
+            width: 15%; /* Scale logo with screen size */
+            max-width: 100px; /* Set a maximum width */
+            height: auto;
+            position: absolute;
+            top: 5px;
+            left: 10px;
+        }
+
+        header h1 {
+            font-size: 1.5em;
+            margin: 0;
+            padding: 0;
+        }
+
+        header p {
+            font-size: 0.9em;
+            margin: 5px 0;
+        }
+
+        /* Navigation Styles */
+        nav {
+            background-color: #000; /* Black */
+            color: #fff;
+            padding: 5px 0;
+            text-align: center;
         }
 
         nav ul {
             list-style: none;
             padding: 0;
-            text-align: center;
+            margin: 0;
         }
 
         nav ul li {
             display: inline;
-            margin: 0 15px;
+            margin: 0 10px;
         }
 
         nav ul li a {
-            color: white;
+            color: #fff;
             text-decoration: none;
             font-weight: bold;
             transition: color 0.3s ease;
+            padding: 5px 10px;
+            border-radius: 5px;
         }
 
         nav ul li a:hover {
-            color: #ffdb58;
+            background-color: #333;
         }
 
+        /* Section Styles */
         section {
-            padding: 50px;
+            padding: 20px;
             text-align: center;
+            margin: 10px 0;
+            background-color: #fff;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
         }
 
-        section:nth-child(even) {
-            background-color: #f9f9f9;
+        section h2 {
+            color: #000;
+            margin-bottom: 15px;
         }
 
+        /* Product Grid Styles */
         .product-grid {
             display: flex;
             flex-wrap: wrap;
@@ -60,18 +103,18 @@
         }
 
         .product {
-            width: 250px;
-            margin: 15px;
-            padding: 15px;
-            background-color: white;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
+            width: 200px;
+            margin: 10px;
+            padding: 10px;
+            background-color: #fff;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
             transition: transform 0.3s ease;
             text-align: left;
         }
 
         .product:hover {
-            transform: translateY(-5px);
+            transform: translateY(-3px);
         }
 
         .product img {
@@ -79,86 +122,259 @@
             height: auto;
             border-radius: 5px;
             object-fit: cover;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
         }
 
         .product p {
-            margin-bottom: 10px;
+            margin-bottom: 5px;
+            font-size: 0.9em;
         }
 
-        .product .order-button {
-            background-color: #25D366;
+        .product .add-to-cart {
+            background-color: #4CAF50; /* Green */
             color: white;
-            padding: 8px 15px;
+            padding: 6px 12px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            text-decoration: none;
+            font-size: 0.8em;
+            transition: background-color 0.3s ease;
             display: inline-block;
-            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        .product .add-to-cart:hover {
+            background-color: #367C39;
+        }
+
+        /* Cart Styles */
+        #cart {
+            position: fixed;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            width: 300px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 10px 0 0 10px;
+            z-index: 1000;
+            text-align: left;
+            display: none; /* Hidden by default */
+        }
+
+        #cart h2 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: #000;
+            text-align: center;
+        }
+
+        #cart ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #cart li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        #cart li:last-child {
+            border-bottom: none;
+        }
+
+        #cart .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #cart .cart-item span {
+            font-size: 0.9em;
+        }
+
+        #cart .cart-item button {
+            background-color: #f44336; /* Red */
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.7em;
             transition: background-color 0.3s ease;
         }
 
-        .product .order-button:hover {
-            background-color: #128C7E;
+        #cart .cart-item button:hover {
+            background-color: #d32f2f;
         }
 
+        #cart .total {
+            margin-top: 15px;
+            text-align: right;
+            font-weight: bold;
+        }
+
+        #cart .checkout-button {
+            background-color: #ffc107; /* Jumia Yellow */
+            color: #000;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+            display: block;
+            width: 100%;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        #cart .checkout-button:hover {
+            background-color: #ffb300;
+        }
+
+        .show-cart-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #000;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        /* Testimonial Styles */
         .testimonial {
-            background-color: #e6f7ff;
-            padding: 30px;
-            margin: 20px auto;
+            background-color: #f9f9f9;
+            padding: 20px;
+            margin: 10px auto;
             width: 80%;
-            border-radius: 10px;
+            border-radius: 5px;
             text-align: left;
+            font-style: italic;
         }
 
+        /* About Content Styles */
         .about-content {
             text-align: left;
             width: 80%;
             margin: auto;
             padding: 20px;
-            background-color: white;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
         }
 
+        /* Form Styles */
         form input,
         form textarea {
             display: block;
             width: 80%;
-            margin: 10px auto;
-            padding: 10px;
+            margin: 5px auto;
+            padding: 8px;
             border: 1px solid #ccc;
             border-radius: 5px;
         }
 
         button {
-            background-color: #0073e6;
-            color: white;
-            padding: 10px 20px;
+            background-color: #ffc107; /* Jumia Yellow */
+            color: #000;
+            padding: 8px 16px;
             border: none;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 1em;
             border-radius: 5px;
             transition: background-color 0.3s ease;
             margin-top: 10px;
         }
 
         button:hover {
-            background-color: #005bb5;
+            background-color: #ffb300;
         }
 
+        /* Footer Styles */
         footer {
-            background-color: #005bb5;
+            background-color: #000; /* Black */
             color: white;
             text-align: center;
             padding: 10px;
+            font-size: 0.8em;
         }
 
-        html {
-            scroll-behavior: smooth;
+        /* Contact Info Styles */
+        .contact-info {
+            text-align: left;
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
         }
 
+        .contact-info h3 {
+            margin-top: 0;
+            color: #000;
+        }
+
+        .contact-info p {
+            margin-bottom: 5px;
+        }
+
+        .whatsapp-button,
+        .facebook-button,
+        .tiktok-button {
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            cursor: pointer;
+            font-size: 0.9em;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .whatsapp-button {
+            background-color: #25D366;
+        }
+
+        .whatsapp-button:hover {
+            background-color: #128C7E;
+        }
+
+        .facebook-button {
+            background-color: #1877F2;
+        }
+
+        .facebook-button:hover {
+            background-color: #0d4ea0;
+        }
+
+        .tiktok-button {
+            background-color: #000000;
+        }
+
+        .tiktok-button:hover {
+            background-color: #1e1e1e;
+        }
+
+        .email-link {
+            color: #0073e6;
+            text-decoration: none;
+        }
+
+        .email-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
             .product-grid {
                 flex-direction: column;
@@ -171,15 +387,16 @@
 
             nav ul li {
                 display: block;
-                margin: 10px 0;
+                margin: 5px 0;
             }
 
             section {
-                padding: 30px;
+                padding: 15px;
             }
 
             .about-content,
-            .testimonial {
+            .testimonial,
+            .contact-info {
                 width: 95%;
             }
 
@@ -187,119 +404,124 @@
             form textarea {
                 width: 95%;
             }
+
+            #cart {
+                width: 90%;
+                max-width: 400px;
+                top: 0;
+                transform: none;
+                left: 0;
+                border-radius: 0;
+                position: static;
+                margin-top: 20px;
+                box-shadow: none;
+            }
+
+            .show-cart-button {
+                position: static;
+                margin-bottom: 10px;
+            }
         }
 
-        .contact-info {
-            text-align: left;
-            width: 80%;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: white;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-        }
-
-        .contact-info h3 {
-            margin-top: 0;
-            color: #0073e6;
-        }
-
-        .contact-info p {
-            margin-bottom: 5px;
-        }
-
-        .whatsapp-button {
-            background-color: #25D366;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-            border-radius: 5px;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 10px;
-            transition: background-color 0.3s ease;
-        }
-
-        .whatsapp-button:hover {
-            background-color: #128C7E;
-        }
-
-        .email-link {
-            color: #0073e6;
-            text-decoration: none;
-        }
-
-        .email-link:hover {
-            text-decoration: underline;
-        }
-
-        .facebook-button {
-            background-color: #1877F2;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-            border-radius: 5px;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 10px;
-            transition: background-color 0.3s ease;
-        }
-
-        .facebook-button:hover {
-            background-color: #0d4ea0;
-        }
-
-        .logo {
+        /* Sign-up/Sign-in Styles */
+        .auth-buttons {
             position: absolute;
             top: 10px;
-            left: 10px;
-            width: 100px;
-            height: auto;
+            right: 10px;
+            display: flex; /* Use flexbox for horizontal layout */
+            gap: 10px; /* Add spacing between buttons */
         }
 
-        .tiktok-button {
-            background-color: #000000;
+        .auth-buttons button {
+            padding: 8px 12px;
+            background-color: #4CAF50;
             color: white;
-            padding: 10px 20px;
             border: none;
             cursor: pointer;
-            font-size: 16px;
-            border-radius: 5px;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 10px;
-            transition: background-color 0.3s ease;
+            border-radius: 4px;
         }
 
-        .tiktok-button:hover {
-            background-color: #1e1e1e;
+        .auth-form {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            text-align: left;
+            width: 80%;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .auth-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .auth-form input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
         }
     </style>
 </head>
 <body>
     <header>
-        <img src="logo.jpg" alt="Shana Spark Collection Logo" class="logo">
+        <img src="logo.png" alt="Shana Spark Collection Logo" class="logo">
         <h1>Welcome to Shana Spark Collection</h1>
         <p>Your One-Stop Shop for Electronics & Household Essentials!</p>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#products">Products</a></li>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+
+        <div class="auth-buttons">
+            <button onclick="showSignupForm()">Sign Up</button>
+            <button onclick="showLoginForm()">Sign In</button>
+        </div>
     </header>
+
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <button class="show-cart-button" onclick="toggleCart()">View Cart</button>
 
     <section id="home">
         <h2>Bringing Innovation and Comfort to Your Doorstep</h2>
         <p>At Shana Spark Collection, we offer a wide range of high-quality electronics and household products to enhance your home and lifestyle.</p>
     </section>
+
+    <div id="signupForm" class="auth-form">
+        <h2>Sign Up</h2>
+        <form id="registrationForm">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password">
+            <button type="submit">Register</button>
+        </form>
+    </div>
+
+    <div id="loginForm" class="auth-form">
+        <h2>Sign In</h2>
+        <form id="loginForm">
+            <label for="loginUsername">Username:</label>
+            <input type="text" id="loginUsername" name="loginUsername">
+            <label for="loginPassword">Password:</label>
+            <input type="password" id="loginPassword" name="loginPassword">
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <p id="message"></p>
 
     <section id="products">
         <h2>What We Offer</h2>
@@ -307,47 +529,52 @@
             <div class="product">
                 <img src="img1.jpg" alt="310 ml highball glass Price: kshs.1000">
                 <p>310 ml highball glass<br>Price: kshs.1000</p>
-                <a href="https://wa.me/254742202441?text=Hello!%20I'm%20interested%20in%20the%20310%20ml%20highball%20glass.%20Is%20it%20available?" class="order-button" target="_blank">Order Now</a>
+                <button class="add-to-cart" onclick="addToCart('310 ml highball glass', 1000)">Add to Cart</button>
             </div>
             <div class="product">
                 <img src="img2.jpg" alt="3 pc marble curtains Curtains 1.5 m each Sheer-3 m Height-2.5m Yellow back in stock Now available @ 3600 Available at the shop">
                 <p>3 pc marble curtains<br>Curtains 1.5 m each<br>Sheer-3 m<br>Height-2.5m<br>Yellow back in stock<br>Now available @ 3600<br>Available at the shop</p>
-                <a href="https://wa.me/254742202441?text=Hello!%20I'm%20interested%20in%20the%203%20pc%20marble%20curtains.%20Is%20it%20available?" class="order-button" target="_blank">Order Now</a>
+                <button class="add-to-cart" onclick="addToCart('3 pc marble curtains', 3600)">Add to Cart</button>
             </div>
             <div class="product">
                 <img src="img3.jpg" alt="All white Tea set PRICE : KES 4500 6 pcs 10&quot; WHite Round Dinner plates 6 pcs White cups 2.0 litres unbreakable White flask Available at the Shop">
                 <p>All white Tea set<br>PRICE : KES 4500<br>6 pcs 10" WHite Round Dinner plates<br>6 pcs White cups<br>2.0 litres unbreakable White flask<br>Available at the Shop</p>
-                <a href="https://wa.me/254742202441?text=Hello!%20I'm%20interested%20in%20the%20All%20white%20Tea%20set.%20Is%20it%20available?" class="order-button" target="_blank">Order Now</a>
+                <button class="add-to-cart" onclick="addToCart('All white Tea set', 4500)">Add to Cart</button>
             </div>
             <div class="product">
                 <img src="img4.jpg" alt="Two Stand Rail Mosquito Net with Sliding Rails 6/6 Cream Pink Purple White Size 5/6 Pink White Purple Cream Size 4/6 White Cream Purple Price:4500/-">
                 <p>Two Stand Rail Mosquito Net with Sliding Rails<br>6/6<br>Cream Pink Purple White<br>Size 5/6<br>Pink White Purple Cream<br>Size 4/6<br>White Cream Purple<br>Price:4500/-</p>
-                <a href="https://wa.me/254742202441?text=Hello!%20I'm%20interested%20in%20the%20Two%20Stand%20Rail%20Mosquito%20Net.%20Is%20it%20available?" class="order-button" target="_blank">Order Now</a>
+                <button class="add-to-cart" onclick="addToCart('Two Stand Rail Mosquito Net', 4500)">Add to Cart</button>
             </div>
             <div class="product">
                 <img src="img5.jpg" alt="New Offer On Straight Mosquito Net Sizes: 4*6 : 1,2,3,4 5*6 : 1,2,3,4 Price per pc: 2000">
                 <p>New Offer On Straight Mosquito Net<br>Sizes:<br>4*6 : 1,2,3,4<br>5*6 : 1,2,3,4<br>Price per pc: 2000</p>
-                <a href="https://wa.me/254742202441?text=Hello!%20I'm%20interested%20in%20the%20Straight%20Mosquito%20Net.%20Is%20it%20available?" class="order-button" target="_blank">Order Now</a>
+                <button class="add-to-cart" onclick="addToCart('Straight Mosquito Net', 2000)">Add to Cart</button>
             </div>
             <div class="product">
                 <img src="img6.jpg" alt="Jua Kali Chapati pans Promotion Price Ksh. 1199/=">
                 <p>Jua Kali Chapati pans<br>Promotion Price<br>Ksh. 1199/=</p>
-                <a href="https://wa.me/254742202441?text=Hello!%20I'm%20interested%20in%20the%20Jua%20Kali%20Chapati%20pans.%20Is%20it%20available?" class="order-button" target="_blank">Order Now</a>
+                <button class="add-to-cart" onclick="addToCart('Jua Kali Chapati pans', 1199)">Add to Cart</button>
             </div>
             <div class="product">
                 <img src="img7.jpg" alt="4pc Hotpot Casserole Capacity: 1000ml,2000ml,4000m,6000ml. Offer price:ksh.3500">
                 <p>4pc Hotpot Casserole<br>Capacity: 1000ml, 2000ml, 4000ml, 6000ml<br>Offer price: ksh.3500</p>
-                <a href="https://wa.me/254742202441?text=Hello!%20I'm%20interested%20in%20the%204pc%20Hotpot%20Casserole.%20Is%20it%20available?" class="order-button" target="_blank">Order Now</a>
+                <button class="add-to-cart" onclick="addToCart('4pc Hotpot Casserole', 3500)">Add to Cart</button>
             </div>
             <div class="product">
-                <img src="img8.jpg" alt="Hisense price list: Hisense 32 smart android tv@22500 Hisense 43 inches android a4 tv@32000 Hisense 43 inches 4k a6 tv@34500 Hisense 50 inches tv @44500 Hisense 55 inches tv@50500 Hisense 65 inches tv@72500">
+                <img src="img8.jpg" alt="Hisense price list: Hisense 32 smart android tv@22500 Hisense 43 inches android a4 tv@34500 Hisense 43 inches 4k a6 tv@34500 Hisense 50 inches tv @44500 Hisense 55 inches tv@50500 Hisense 65 inches tv@72500">
                 <p>Hisense price list:<br>Hisense 32 smart android tv@22500<br>Hisense 43 inches android a4 tv@32000<br>Hisense 43 inches 4k a6 tv@34500<br>Hisense 50 inches tv @44500<br>Hisense 55 inches tv@50500<br>Hisense 65 inches tv@72500</p>
-                <a href="https://wa.me/254742202441?text=Hello!%20I'm%20interested%20in%20the%20Hisense%20TVs.%20Could%20you%20provide%20more%20details%20and%20availability?" class="order-button" target="_blank">Order Now</a>
+                <button class="add-to-cart" onclick="addToCart('Hisense 32 smart android tv', 22500)">Add to Cart</button>
+                <button class="add-to-cart" onclick="addToCart('Hisense 43 inches android a4 tv', 32000)">Add to Cart</button>
+                <button class="add-to-cart" onclick="addToCart('Hisense 43 inches 4k a6 tv', 34500)">Add to Cart</button>
+                <button class="add-to-cart" onclick="addToCart('Hisense 50 inches tv', 44500)">Add to Cart</button>
+                <button class="add-to-cart" onclick="addToCart('Hisense 55 inches tv', 50500)">Add to Cart</button>
+                <button class="add-to-cart" onclick="addToCart('Hisense 65 inches tv', 72500)">Add to Cart</button>
             </div>
             <div class="product">
                 <img src="img9.jpg" alt="Bosch 11pc Cookware with Silicone lid covers Made in Germany Small diamond texture Now @8800/= Colour: Black Good Quality">
                 <p>Bosch 11pc Cookware with Silicone lid covers<br>Made in Germany<br>Small diamond texture<br>Now @8800/=<br>Colour: Black<br>Good Quality</p>
-                 <a href="https://wa.me/254742202441?text=Hello!%20I'm%20interested%20in%20the%20Bosch%2011pc%20Cookware%20set.%20Is%20it%20available?" class="order-button" target="_blank">Order Now</a>
+                <button class="add-to-cart" onclick="addToCart('Bosch 11pc Cookware', 8800)">Add to Cart</button>
             </div>
         </div>
         <a href="https://www.tiktok.com/@shanasparkcollection?_t=ZM-8vxfBZW8CE3&_r=1" class="tiktok-button" target="_blank">See More Videos on TikTok</a>
@@ -409,5 +636,113 @@
     <footer>
         <p>© 2025 Shana Spark Collection. All rights reserved.</p>
     </footer>
+
+    <div id="cart">
+        <h2>Shopping Cart</h2>
+        <ul id="cart-items">
+            <!-- Cart items will be dynamically added here -->
+        </ul>
+        <div class="total">
+            Total: KES <span id="cart-total">0</span>
+        </div>
+        <a href="https://wa.me/254742202441?text=Hello!%20I'm%20interested%20in%20placing%20an%20order.%20Here%20are%20the%20items%20in%20my%20cart:%0A%0A" class="checkout-button" id="checkout-button" target="_blank">Checkout on WhatsApp</a>
+    </div>
+
+    <script>
+        let cart = [];
+        let cartTotal = 0;
+
+        function addToCart(name, price) {
+            const item = { name: name, price: price };
+            cart.push(item);
+            cartTotal += price;
+            updateCart();
+        }
+
+        function removeFromCart(index) {
+            cartTotal -= cart[index].price;
+            cart.splice(index, 1);
+            updateCart();
+        }
+
+        function updateCart() {
+            const cartItemsList = document.getElementById('cart-items');
+            const cartTotalElement = document.getElementById('cart-total');
+            const checkoutButton = document.getElementById('checkout-button');
+
+            cartItemsList.innerHTML = ''; // Clear existing items
+            let checkoutMessage = "Hello!%20I'm%20interested%20in%20placing%20an%20order.%20Here%20are%20the%20items%20in%20my%20cart:%0A%0A";
+
+            cart.forEach((item, index) => {
+                const listItem = document.createElement('li');
+                listItem.classList.add('cart-item');
+                listItem.innerHTML = `
+                    <span>${item.name} - KES ${item.price}</span>
+                    <button onclick="removeFromCart(${index})">Remove</button>
+                `;
+                cartItemsList.appendChild(listItem);
+                checkoutMessage += `${item.name} - KES ${item.price}%0A`;
+            });
+
+            cartTotalElement.textContent = cartTotal;
+            checkoutMessage += `%0ATotal:%20KES%20${cartTotal}`;
+            checkoutButton.href = `https://wa.me/254742202441?text=${checkoutMessage}`;
+        }
+
+        function toggleCart() {
+            const cartElement = document.getElementById('cart');
+            cartElement.style.display = cartElement.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function simpleHash(str) {
+          let hash = 0;
+          for (let i = 0; i < str.length; i++) {
+            hash = (hash << 5) - hash + str.charCodeAt(i);
+          }
+          return hash;
+        }
+
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+          event.preventDefault();
+
+          const username = document.getElementById('username').value;
+          const password = document.getElementById('password').value;
+          const hashedPassword = simpleHash(password);
+
+          localStorage.setItem('username', username);
+          localStorage.setItem('hashedPassword', hashedPassword);
+
+          document.getElementById('message').textContent = 'Registration successful!';
+          document.getElementById('signupForm').style.display = 'none';
+        });
+
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+          event.preventDefault();
+
+          const loginUsername = document.getElementById('loginUsername').value;
+          const loginPassword = document.getElementById('loginPassword').value;
+          const loginHashedPassword = simpleHash(loginPassword);
+
+          const storedUsername = localStorage.getItem('username');
+          const storedHashedPassword = localStorage.getItem('hashedPassword');
+
+          if (loginUsername === storedUsername && loginHashedPassword == storedHashedPassword) {
+            document.getElementById('message').textContent = 'Login successful!';
+            document.getElementById('loginForm').style.display = 'none';
+          } else {
+            document.getElementById('message').textContent = 'Login failed.';
+          }
+        });
+
+        function showSignupForm() {
+          document.getElementById('signupForm').style.display = 'block';
+          document.getElementById('loginForm').style.display = 'none';
+        }
+
+        function showLoginForm() {
+          document.getElementById('loginForm').style.display = 'block';
+          document.getElementById('signupForm').style.display = 'none';
+        }
+    </script>
 </body>
 </html>
